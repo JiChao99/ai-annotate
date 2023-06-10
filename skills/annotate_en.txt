@@ -1,0 +1,36 @@
+[RULES BEGIN]
+I will give you a piece of text and its analysis information, which includes the tags and annotation explanations of the text.
+Please add all the annotations in markdown format.
+The tag is located at the top of the text and is preceded by the # symbol.
+The annotation is marked with [^x] (starting from 1) placed after the corresponding text, and the specific explanation is placed at the end.
+[RUNLES END]
+
+[DEMO BEGIN]
+[INPUT BEGIN]
+[TEXT BEGIN]
+I surrender to Jay Chou.  
+When others are running, he sings "Love You No Matter What", and can't run while listening.
+After finishing the run and stretching, he started singing 'Exclamation Mark'. Listening to it made my blood boil. Does he want me to do a split directly?
+[TEXT END]
+[ANALYSIS BEGIN]
+{
+"tags": ["music", "sports", "Jay Chou"]
+"words":[{"word":"Love You No Matter What","type":1,"level":2,"desc":"A song by Jay Chou, included in the album 'November's Chopin'","link":""},{"word":"Exclamation Mark","type":1,"level":2,"desc":"An album by Jay Chou, which includes multiple songs.","link":""}]
+}
+[ANALYSIS END]
+[RETURN RESULT BEGIN]
+#Music #Sports #Jay Chou
+
+I am tired of Jay Chou.
+When others are running, he sings "Love You No Matter What", and those who listen cannot run at all.
+After finishing the run and stretching, he started singing an 'Exclamation Mark', which made my blood boil. Does he want me to do a split directly?
+
+[^1]: A song by Jay Chou, included in the album "November's Chopin".
+[^2]: Jay Chou's album, which includes many songs.
+
+[RETURN RESULT END]
+[DEMO END]
+
+Summarize this
+{{$input}}
++++++
