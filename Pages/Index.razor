@@ -1,0 +1,53 @@
+﻿@page "/"
+@using Markdig;
+@using Microsoft.SemanticKernel;
+@using System.Text.Json;
+@using System.Text.RegularExpressions;
+
+<head>
+<style>
+    h1{
+        padding:5px;
+    }
+    p{
+        padding:5px;
+    }
+    .mde-添加注解{
+        background-color: #4CAF50 !important;
+        color: #FFFFFF;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+    }
+</style>
+</head>
+
+<Markdown Value="@markdownValue" ValueChanged="@OnMarkdownValueChanged" Placeholder="Input your text" CustomButtonClicked="@OnCustomButtonClicked"
+          LineNumbers=@true NativeSpellcheck=@false UnorderedListStyle="-" UploadImage=@false SpellChecker=@false>
+    <Toolbar>
+        <MarkdownToolbarButton Text="AI Annotate " Icon="fa fa-plus"></MarkdownToolbarButton>
+        <MarkdownToolbarButton Action=@MarkdownAction.Undo Title=@MarkdownAction.Undo.ToString()></MarkdownToolbarButton>
+        <MarkdownToolbarButton Action=@MarkdownAction.Redo Title=@MarkdownAction.Redo.ToString()></MarkdownToolbarButton>
+        @for (int i = 0; i < MarkdownActionText.Length; i++)
+        {
+            <MarkdownToolbarButton Separator=@(i == 0) Action=@MarkdownActionText[i] Title=@(MarkdownActionText[i].ToString()) />
+        }
+        @for (int i = 0; i < MarkdownActionBlock.Length; i++)
+        {
+            <MarkdownToolbarButton Separator=@(i == 0) Action=@MarkdownActionBlock[i] Title=@(MarkdownActionBlock[i].ToString()) />
+        }
+        @for (int i = 0; i < MarkdownActionLink.Length; i++)
+        {
+            <MarkdownToolbarButton Separator=@(i == 0) Action=@MarkdownActionLink[i] Title=@(MarkdownActionLink[i].ToString()) />
+        }
+        <MarkdownToolbarButton Separator Action="MarkdownAction.Preview" Text="Preview " Title=@MarkdownAction.Preview.ToString() />
+        <MarkdownToolbarButton Action="MarkdownAction.Guide" Title=@MarkdownAction.Guide.ToString() />
+         <MarkdownToolbarButton  Separator Name="添加注解" Icon="fa fa-check" Title="添加注解 " Text="AI  " class="ai-build"></MarkdownToolbarButton>
+        <MarkdownToolbarButton Separator Name="https://github.com/jichao99/ai-annotate" Text="Alec.Ji " Icon="fa fab fa-github" Title="A Custom Link" />
+    </Toolbar>
+    </Markdown>
+<Progress Value="@progressValue" Visibility="@isShowProgress" Animated Striped />
+ <pre>@stepText</pre>
+
