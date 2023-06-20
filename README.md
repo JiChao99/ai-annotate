@@ -9,6 +9,7 @@ annotate by GAI, use Semantic Kernel, a blazor site.
 - [ ] multi output style: markdown,text,html
 - [ ] automatic scraping, media information.
 
+---
 
 - [ ] 使用支持Markdown注释的组件。
 - [ ] 多层级，支持不同级别的注释
