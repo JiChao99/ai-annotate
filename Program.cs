@@ -9,6 +9,13 @@ builder.Services.AddServerSideBlazor();
 
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
+#if DEBUG
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+builder.Configuration.AddJsonFile($"appsettings.{environment}.json", optional: false, reloadOnChange: true);
+#else
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+#endif
+
 var config = builder.Configuration;
 builder.Services
     .AddBlazorise(options =>

@@ -12,7 +12,8 @@
     p{
         padding:5px;
     }
-    .mde-添加注解{
+
+    .mde-annotate {
         background-color: #4CAF50 !important;
         color: #FFFFFF;
         border: none;
@@ -44,7 +45,7 @@
         }
         <MarkdownToolbarButton Separator Action="MarkdownAction.Preview" Text="Preview " Title=@MarkdownAction.Preview.ToString() />
         <MarkdownToolbarButton Action="MarkdownAction.Guide" Title=@MarkdownAction.Guide.ToString() />
-         <MarkdownToolbarButton  Separator Name="添加注解" Icon="fa fa-check" Title="添加注解 " Text="AI  " class="ai-build"></MarkdownToolbarButton>
+        <MarkdownToolbarButton  Separator Name="annotate" Icon="fa fa-check" Title="添加注解 " Text="AI  " class="ai-build"></MarkdownToolbarButton>
         <MarkdownToolbarButton Separator Name="https://github.com/jichao99/ai-annotate" Text="Alec.Ji " Icon="fa fab fa-github" Title="A Custom Link" />
     </Toolbar>
     </Markdown>

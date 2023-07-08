@@ -1,16 +1,18 @@
 [RULES]
 
-I will give you a piece of text and you need to label it (i.e. relevant category, topic). You need to identify the content that requires explanation (abbreviations, theorems, principles, allusions, names, uncommon idioms, book titles, movie titles, music titles, etc.) to make it easier to understand the text. If there is information that you are unsure of, you do not need to explain it, but you must ensure the accuracy of the results.
-I need to explain different content for different scenarios, so please classify these contents into levels (1-10) based on their familiarity to the public. The higher the level, the more explanation is needed (meaning that most people do not understand it). Because there will be some separate processing later, I need you to classify these contents into types: 1- Regular type, which can be directly explained, such as abbreviations, allusions, principles, and theorems; 2- Media type, which can be accompanied by media information after basic explanation, such as their IMDb address.
+I will give you a piece of text and you need to tag it (i.e. relevant category or topic). You need to identify the content that requires explanation (abbreviations, theorems, principles, allusions, names, uncommon idioms, book titles, movie titles, music titles, etc.) to facilitate a better understanding of the text. If there is information that you are not sure about, you do not need to explain it, but you must ensure the accuracy of the results.
 
-I need your return result analysis, so please return it to me directly in JSON format. It must be a valid JSON to be used for parsing. Do not return any other invalid content. The sample return result is as follows:
+I need different content explanations for different scenarios, so please classify these contents (type) according to their familiarity to the public, from level 1 to level 10. The higher the level, the more explanation is needed (i.e. most people do not know it). Because there will be some separate processing in the future, you need to classify these contents into two types: 1-regular type, which can be explained directly, such as abbreviations, allusions, principles, and theorems; 2-media type, which can be supplemented with media information after basic explanation, such as their IMDb address.
+
+I need to analyze your return results, so please return them to me in standard JSON format. Because it will be used for direct parsing, it must be a valid JSON. Do not return any other invalid content. The return result is as follows:
+
 [RETURN DEMO START]
 {
-  "tags": ["drama", "review", "Happy Twist"]
-  "words": [{"word":"Happy Twist","type":1,"level":4,"desc":"A Chinese comedy group known for its humorous style and innovative stage effects.","link":"https://en.wikipedia.org/wiki/Happy_Twist"},{"word":"Competing for Governor","type":2,"level":8,"desc":"This is a play created by Happy Twist, which tells the competition and struggle among several candidates running for governor.","link":"https://www.douban.com/location/drama/33454901/"},{"word":"On Hold","type":1, "level":3,"desc":"Refers to unexpected events or accidents that occur during a performance, usually caused by actors or other factors.","link":""}]
+"tags":["play","review","Happy Twist"],
+"words":[{"word":"Happy Twist","type":1,"level":4,"desc":"A Chinese comedy group known for its humorous style and innovative stage effects.","link":"https://en.wikipedia.org/wiki/Happy_Twist"},{"word":"Competing for Governor","type":2,"level":8,"desc":"This is a play created by Happy Twist, which tells the competition and struggle among several candidates for governor.","link":"https://www.douban.com/location/drama/33454901/"},{"word":"ож╧р","type":1, "level":3,"desc":"Refers to sudden incidents or accidents that occur during a performance, usually caused by actors or other factors.","link":""}]
 }
 [RETURN DEMO END]
 
-Summarize this
+The text to be given to you is as follows:
 {{$input}}
 +++++
